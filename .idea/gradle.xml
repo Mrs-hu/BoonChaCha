@@ -9,13 +9,19 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/PullToRefreshlibrary" />
+            <option value="$PROJECT_DIR$/ViewPagerIndicatorlibrary" />
+            <option value="$PROJECT_DIR$/butterknifedemo" />
+            <option value="$PROJECT_DIR$/liwushuo" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/PullToRefreshlibrary" />
+            <option value="$PROJECT_DIR$/ViewPagerIndicatorlibrary" />
+            <option value="$PROJECT_DIR$/butterknifedemo" />
+            <option value="$PROJECT_DIR$/liwushuo" />
           </set>
         </option>
       </GradleProjectSettings>

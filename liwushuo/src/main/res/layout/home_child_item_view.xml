@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp">
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/child_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:scaleType="centerCrop"
+        android:background="#cccccc"
+        app:riv_corner_radius="20dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ig_marker_fresh"/>
+    <ImageView
+        android:id="@+id/like_bg_imv"
+        android:padding="10dp"
+        android:scaleType="fitStart"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_compact_favourite_normal"
+       android:background="@drawable/article_like_count_bg"/>
+    <TextView
+        android:id="@+id/home_child_likecount_tv"
+        android:textSize="@dimen/textSizeE"
+        android:layout_marginRight="3dp"
+        android:text="12988"
+        android:textColor="@color/pink"
+        android:layout_alignRight="@+id/like_bg_imv"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/chile_item_title_tv"
+        android:padding="5dp"
+        android:text="随便写点什么在上面"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeE"
+        android:layout_alignBottom="@+id/child_item_img"
+        android:background="@drawable/abc_textfield_search_default_holo_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
