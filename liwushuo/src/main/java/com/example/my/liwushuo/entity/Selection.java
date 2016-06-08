@@ -134,7 +134,7 @@ public class Selection {
             @com.alibaba.fastjson.annotation.JSONField(name = "liked")
             private boolean liked;
             @com.alibaba.fastjson.annotation.JSONField(name = "likes_count")
-            private int likesCount;
+            private int likesCount = 0;
             @com.alibaba.fastjson.annotation.JSONField(name = "published_at")
             private int publishedAt;
             @com.alibaba.fastjson.annotation.JSONField(name = "share_msg")
