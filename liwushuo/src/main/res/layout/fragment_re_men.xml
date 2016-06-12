@@ -1,13 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.my.liwushuo.frg.ReMenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/remen_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff0000">
+
+        <TextView
+            android:id="@+id/remen_tool_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="热门"
+            android:paddingLeft="50dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/remen_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="测试 热门" />
+        android:layout_below="@+id/remen_tool_bar" />
 
-</FrameLayout>
+
+</RelativeLayout>

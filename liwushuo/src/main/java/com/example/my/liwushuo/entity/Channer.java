@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/6.
  */
-public class HomeCategory {
+public class Channer {
 
     /**
      * code : 200

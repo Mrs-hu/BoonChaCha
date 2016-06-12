@@ -2,33 +2,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.my.liwushuo.frg.ZhiNanFragment">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_zhinan"
+        android:background="@color/crimson"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
 
+        <TextView
+            android:id="@+id/tv_tb_main"
+            android:text="礼物说"
+            android:textSize="@dimen/textSizeA"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/rl_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tb_zhinan"
+        >
+        <ImageView
+            android:id="@+id/iv_addchannel"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/arrow_index_down"
+            />
     <com.viewpagerindicator.TabPageIndicator
-        android:id="@+id/indicator"
+        android:id="@+id/indicator_zhinan"
         android:layout_toLeftOf="@+id/iv_addchannel"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="match_parent"
         />
 
-    <ImageView
-        android:id="@+id/iv_addchannel"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="5dp"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:src="@drawable/arrow_index_down"
-        android:layout_alignParentRight="true" />
+    </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:layout_marginTop="5dp"
         android:id="@+id/vp_jingxuan"
+        android:layout_below="@+id/rl_indicator"
         android:background="#73d6c6c6"
-        android:layout_below="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </android.support.v4.view.ViewPager>
 
 </RelativeLayout>

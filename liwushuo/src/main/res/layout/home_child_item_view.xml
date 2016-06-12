@@ -4,13 +4,21 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp">
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/child_item_img"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:scaleType="centerCrop"
-        android:background="#cccccc"
-        app:riv_corner_radius="20dp"/>
+        android:layout_height="200dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="false"
+        app:cardElevation="5dp">
+    <RelativeLayout
+        android:id="@+id/rl_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/child_item_img"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     <ImageView
         android:layout_width="60dp"
@@ -36,15 +44,22 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/child_item_title_imv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_home_item_title_bg"/>
     <TextView
         android:id="@+id/chile_item_title_tv"
         android:padding="5dp"
         android:text="随便写点什么在上面"
         android:textColor="@color/white"
         android:textSize="@dimen/textSizeE"
-        android:layout_alignBottom="@+id/child_item_img"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/abc_textfield_search_default_holo_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

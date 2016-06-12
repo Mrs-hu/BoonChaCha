@@ -33,4 +33,28 @@
         <item name="android:typeface">monospace</item>
         <item name="android:textColor">@color/selector_tabtext</item>
     </style>
+    <!--自定义dialog背景全透明无边框 -->
+    <style name="MyProgressDialogStyle" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/white</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="fenlei_rbtn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/selecter_fenlei_radio_textcolor</item>
+    </style>
 </resources>

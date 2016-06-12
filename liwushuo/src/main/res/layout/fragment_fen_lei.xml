@@ -1,13 +1,43 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.my.liwushuo.frg.FenLeiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/fenlei_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ff0000">
+
+        <RadioGroup
+            android:id="@+id/fenlei_tool_bar_rg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="50dp">
+
+            <RadioButton
+                android:id="@+id/fenlei_tool_bar_rb1"
+                android:background="@drawable/fenlei_rbtn_a_bg"
+                style="@style/fenlei_rbtn_style"
+                android:text="攻略" />
+
+            <RadioButton
+                android:id="@+id/fenlei_tool_bar_rb2"
+                android:background="@drawable/fenlei_rbtn_b__bg"
+                style="@style/fenlei_rbtn_style"
+                android:text="礼物" />
+        </RadioGroup>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fenlei_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="测试 分类" />
+        android:layout_below="@+id/fenlei_tool_bar" />
 
-</FrameLayout>
+
+</RelativeLayout>

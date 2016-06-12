@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ff00"
     tools:context=".MainActivity">
     <TextView
         android:id="@+id/home_group_item_date_txt"
@@ -13,6 +12,7 @@
         android:textSize="@dimen/textSizeF"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
         android:drawableLeft="@drawable/group_item_shape"
         android:layout_alignParentLeft="true"/>
 

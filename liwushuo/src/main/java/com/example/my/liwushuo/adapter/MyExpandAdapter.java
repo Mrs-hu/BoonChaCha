@@ -9,12 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.my.liwushuo.R;
 import com.example.my.liwushuo.entity.Selection;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,11 +27,11 @@ import butterknife.OnClick;
 public class MyExpandAdapter extends BaseExpandableListAdapter {
 
     private Map<Integer,List<Selection.Data.Items>> childDataMap ;
-    private List<Integer> group;
+    private List<String> group;
     private Context context;
     List<Selection.Data.Items> child = new ArrayList<>();
 
-    public MyExpandAdapter(Context context,  List<Integer> group, Map<Integer, List<Selection.Data.Items>> childDataMap) {
+    public MyExpandAdapter(Context context,  List<String> group, Map<Integer, List<Selection.Data.Items>> childDataMap) {
         this.group = group;
         this.childDataMap = childDataMap;
         this.context = context;
@@ -51,12 +50,12 @@ public class MyExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-        return groupPosition;
+        return group.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return childPosition;
+        return childDataMap.get(groupPosition).get(childPosition);
     }
 
     @Override
@@ -84,12 +83,10 @@ public class MyExpandAdapter extends BaseExpandableListAdapter {
         } else {
             groupViewHolder = (GroupViewHolder) view.getTag();
         }
-        int integer = group.get(groupPosition);
-        if(integer != 0){
-            Date date = new Date(integer *1000l);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd E");
-            String format = sdf.format(date);
-            groupViewHolder.dateText.setText(format);
+        String s = group.get(groupPosition);
+        if(s != null){
+
+            groupViewHolder.dateText.setText(s);
         }
         else{
             groupViewHolder.dateText.setText("没拿到数据");
@@ -99,39 +96,40 @@ public class MyExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-       View childView = convertView;
+        View childView = convertView;
         ChildViewHolder childViewHolder = null;
-        if(childView == null){
-            childView = LayoutInflater.from(context).inflate(R.layout.home_child_item_view,null);
+        if (childView == null) {
+            childView = LayoutInflater.from(context).inflate(R.layout.home_child_item_view, null);
             childViewHolder = new ChildViewHolder(childView);
-        }else{
+        } else {
             childViewHolder = (ChildViewHolder) childView.getTag();
         }
-        List<Selection.Data.Items> itemses = new ArrayList<>();
 
-        List<Selection.Data.Items> itemses1 = childDataMap.get(group.get(groupPosition));
-        if(itemses1!= null){
-
-        itemses.addAll(itemses1);
+        List<Selection.Data.Items> childData = new ArrayList<>();
+        if(childDataMap!= null){
+            childData =  childDataMap.get(groupPosition);
         }
+        if (childData == null) {
 
-        if(itemses == null){
-
-        childViewHolder.imageView.setImageResource(R.drawable.img14);
-        }else{
             childViewHolder.imageView.setImageResource(R.drawable.img14);
-//        Glide.with(context)
-//                .load(itemses.get(0).getCoverImageUrl())
-//                .placeholder(R.drawable.icon_picblank)
-//                .error(R.drawable.btn_close_login)
-//                .centerCrop()
-//                .into(childViewHolder.imageView);
-//        childViewHolder.tvLike.setText(itemses.get(childPosition).getLikesCount());
-//        childViewHolder.tvTitle.setText(itemses.get(childPosition).getTitle());
+        } else {
+
+            Glide.with(context)
+                    .load(childData.get(childPosition).getCoverImageUrl())
+                    .placeholder(R.drawable.icon_picblank)
+                    .error(R.drawable.btn_close_login)
+                    .centerCrop()
+                    .into(childViewHolder.imageView);
+            int likesCount =childData.get(childPosition).getLikesCount() ;
+
+        childViewHolder.tvLike.setText(String.valueOf(likesCount));
+            if (childData.get(childPosition).getTitle()!=null){
+        childViewHolder.tvTitle.setText(childData.get(childPosition).getTitle());
+            childViewHolder.imvBg.setVisibility(View.VISIBLE);
+            }
         }
         return childView;
     }
-
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
@@ -153,6 +151,8 @@ class GroupViewHolder {
     class ChildViewHolder {
         @BindView(R.id.child_item_img)
         public ImageView imageView;
+        @BindView(R.id.child_item_title_imv)
+        public ImageView imvBg;
         @BindView(R.id.home_child_likecount_tv)
         public TextView tvLike;
         @BindView(R.id.chile_item_title_tv)

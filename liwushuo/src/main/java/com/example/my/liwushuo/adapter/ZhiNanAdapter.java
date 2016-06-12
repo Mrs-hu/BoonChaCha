@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.my.liwushuo.constant.Constant;
+import com.example.my.liwushuo.entity.Channer;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import java.util.List;
  * Created by my on 2016/5/31.
  */
 public class ZhiNanAdapter extends FragmentStatePagerAdapter{
-    private List<Constant.UrlInfo> urlInfos;
     private List<Fragment> data;
-    public ZhiNanAdapter(FragmentManager fm,List<Fragment> data,List<Constant.UrlInfo> urlInfos) {
+    private List<Channer.DataBean.ChannelsBean> channerData;
+    public ZhiNanAdapter(FragmentManager fm,List<Fragment> data,List<Channer.DataBean.ChannelsBean> channerData) {
         super(fm);
         this.data =data;
-        this.urlInfos = urlInfos;
+        this.channerData = channerData;
     }
 
     @Override
@@ -32,6 +32,6 @@ public class ZhiNanAdapter extends FragmentStatePagerAdapter{
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return this.urlInfos.get(position).getTitle();
+        return this.channerData.get(position).getName();
     }
 }
